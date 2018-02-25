@@ -13,7 +13,7 @@ type JobQueue struct {
 func pop(l *list.List) Job {
 	var job Job
 	el := l.Front()
-	if el != nil {
+	if el == nil {
 		return job
 	}
 	return l.Remove(el).(Job)

@@ -19,7 +19,7 @@ func TestRaceConditions(t *testing.T) {
 			}
 		}(i)
 	}
-	time.Sleep(time.Millisecond * 5000)
+	time.Sleep(time.Millisecond * 1000)
 	for i := 0; i < 1000; i++ {
 		x := q.Pop()
 		if x.JobData == nil {
