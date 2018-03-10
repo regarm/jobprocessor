@@ -68,7 +68,7 @@ func (prcs *processor) schedNewWoker() {
 
 func NewProcessor(jq *JobQueue) *processor {
 	return &processor{
-		maxroutines:     100,
+		maxroutines:     1000,
 		jobQueue:        jq,
 		processorStatus: &processorStatus{},
 		processorChannels: &processorChannels{
