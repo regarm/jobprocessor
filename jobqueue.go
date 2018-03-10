@@ -35,14 +35,6 @@ func (jq JobQueue) Sched() {
 	jq.jobQueueStatus.scheduled = true
 }
 
-func getFor(el *list.Element) Job {
-	var job Job
-	if el != nil {
-		job = el.Value.(Job)
-	}
-	return job
-}
-
 func New() JobQueue {
 	jq := JobQueue{
 		l: list.New(),
