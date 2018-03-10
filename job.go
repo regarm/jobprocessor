@@ -1,19 +1,15 @@
 package jobprocessor
 
-var Done = true
-
 type TaskCreator interface {
-	createTask() func(JobData, chan bool)
+	createTask() func(interface{})
 }
-type JobData interface{}
 
 type Job struct {
-	StatusChannel chan bool
-	TaskCreator   TaskCreator
-	JobData       JobData
+	TaskCreator TaskCreator
+	JobData     interface{}
 }
 
 func (j Job) process() {
 	task := j.TaskCreator.createTask()
-	task(j.JobData, j.StatusChannel)
+	task(j.JobData)
 }
